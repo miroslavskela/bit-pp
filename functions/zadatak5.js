@@ -21,4 +21,22 @@ function square(num) {
     }
     return line;
 }
-console.log(square(5));
+console.log(square(100));
+
+/*var length = 5;
+var asterix = "*";
+var string = "";
+var space = " ";
+for (var i = 0; i < length; i++) {
+  for (var j = 0; j < length; j++) {
+    if (i === 0 || i === length - 1) 
+      string += asterix;
+    else if (j === 0 || j === length - 1) 
+      string += asterix;
+    else 
+      string += space;
+    }
+  if (i != length - 1) 
+    string += "\n";
+  }
+console.log(string);*/
