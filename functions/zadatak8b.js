@@ -1,22 +1,31 @@
-//Write a function that accepts a number as a parameter and checks if the number is prime or not. 
-//Note: A prime number (or a prime) is a natural number greater than 1 that has no positive divisors other than 1 and itself.
+/*Write a function that accepts a number as a parameter and checks if the number is prime or not. 
+Note: A prime number (or a prime) is a natural number greater than 1 that has no positive divisors other than 1 and itself.*/
 
+function primeNumber(number) {
 
-function primeNumber(a) {
-    var result;
-    var divided=0;
-    var i= 2;
-    do {divided = a%i;
+    var msg = " ";
+
+    if (number === 1 || number === 2) {
+        msg = number + ' is a prime number';
+        return msg;
     }
-    while (divided !== 0 && i<a){
-        i++;
-        
-        if ( divided === 0) {
-            return result = "It's not a prime number";
-        
-        } else {
-            return result = "It's prime number";
+
+    for (var i = 2; i < number; i++) {
+
+        if (number % i === 0) {
+
+            msg = number + ' is not a prime number';
+
+            break;
+        }
+
+        else {
+
+            msg = number + ' is a prime number';
         }
     }
-    
-} console.log(primeNumber(17));
+
+    return msg;
+}
+
+console.log(primeNumber(3));
