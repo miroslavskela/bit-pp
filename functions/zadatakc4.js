@@ -12,8 +12,10 @@ function reversNumber(number){
   for (var i = strNumber.length-1; i >= 0; i--){
       strNumberReverse+=strNumber[i];
       }
+      
   
-  return parseInt (strNumberReverse, 10);
+    return parseInt(strNumberReverse, 10);
+    
 }
 
 console.log(reversNumber(5757575575));

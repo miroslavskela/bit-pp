@@ -1,27 +1,25 @@
+/* Write a function to hide email address.
 
-function findFrequentItem(inputArr) {
-    var mostFrequent = 1;
-    var m = 0;
-    var item;
-    for (var i = 0; i < inputArr.length; i++) {
-        for (var j = i; j < inputArr.length; j++) {
-            if (inputArr[i] == inputArr[j]) {
-                m++;
-                
-            }
-            if (mostFrequent < m) {
-                mostFrequent = m;
-                item = inputArr[i];
-                
-            }
-        }
-        m = 0;
+"myemailaddress@bgit.rs" -> "myemail...@bgit.rs"
+ */
+
+function hideEmail(str, number) {
+    newStr = "";
+    newStr1 = "";
+    newStr2 = "";
+    for (i = number; i < str.length - 5; i++) {
+
+        newStr += "."
+        newStr = "..."
+
+    } 
+    for (i = 0; i < number; i++){
+        newStr1+=str[i];
     }
- 
-    // output: item (number of times)
-    return item + " ( " + mostFrequent + " times ) "
- }
- 
- var arr1 = [3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3];
- console.log(findFrequentItem(arr1));
- 
+    for (i = str.length - 5; i < str.length; i++){
+        newStr2+=str[i];
+    }
+
+    return newStr1 + newStr + newStr2;
+}
+console.log(hideEmail("myemagdfgdfgdfiladdress@bgit.rs", 7));

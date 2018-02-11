@@ -5,20 +5,20 @@
  */
 
  function lastElement(arr, number){
-     newArr = [];
-     newIndex = 0;
-    
+    var newArr = [];
+    var newIndex = number-1 ;
+    var newIndex1 = 0;
      if (number !== undefined) {
      for (i = arr.length-1; i >= (arr.length)-number; i--){
              
              newArr[newIndex]=arr[i] 
-             newIndex++;
+             newIndex --;
              
             }
         } else if (number === undefined) {
             for (i = arr.length-1; i >= arr.length-1; i--){
-                newArr[newIndex]=arr[i];
-               newIndex++;
+                newArr[newIndex1]=arr[i];
+               
             }
             
         } {
