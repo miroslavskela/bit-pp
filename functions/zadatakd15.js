@@ -9,20 +9,19 @@ function wordSquare(arr){
         }
     }
     for (var i = 0; i <= word +1; i++){
-        for(var j = 0; j <= arr.length; j++){
+        for(var j = 0; j <= arr.length+1; j++){
             if ( i === 0 ||  i === word + 1) {
                 result+="*"
-            } else if(i !== 0 || i !== word + 1){
-                result+=" ";
-            } 
+            } else if(j === 0 || j === arr.length + 1){
+                result+="*";
+            } else {
+                result+= " ";
+            }
             
             
         }
-         if(j === 1 || j === arr.length+1){
-            result+= "*"
-        }else if(j !== 1 || j !== arr.length+1){
-            result+= " ";
-        }result+="\n"
+         
+        result+="\n"
         
     }return result;
 }
