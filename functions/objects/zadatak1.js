@@ -8,4 +8,4 @@ var Miroslav = {
     }
 }
 
-console.log(Miroslav);
+console.log(Miroslav.study("everyday"));
