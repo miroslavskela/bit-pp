@@ -62,18 +62,18 @@
 
 
     var action = new Genre("action");
-    console.log(action.getData());
+   // console.log(action.getData());
 
     var movie = new Movie("Svemirci su krivi za sve", action, 90);
     var movie1 = new Movie("Svemirci su krivi za sve", action, 90);
     var program1 = new Program("2006")
-    console.log(movie.getData());
+    //console.log(movie.getData());
 
 
     var program1 = new Program("11/2/2107");
     program1.addMovie(movie);
     program1.addMovie(movie1);
-    console.log(program1.listOfMovies);
+    //console.log(program1.listOfMovies);
     console.log(program1.getData());
 
 
