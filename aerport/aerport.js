@@ -24,7 +24,7 @@
             this.name = name;
             this.surname = surname;
             this.number = number || Math.round(Math.random() * (100 - 10) + 10);
-            this.category = category || "e";
+            this.category = category || ("e");
 
             this.getData = function (seat, person) {
                 return seat.getData() + ", " + person.getData();
@@ -35,8 +35,8 @@
             this.relation = relation;
             this.date = new Date(date);
             this.year = this.date.getFullYear();
-            this.month = this.date.getMonth();
-            this.day = this.date.getDay();
+            this.month = this.date.getMonth()+1;
+            this.day = this.date.getDate();
             this.listOfPassengers = [];
             this.setDate = function () {
                 return this.day + "." + this.month + "." + this.year + ".";
@@ -57,10 +57,14 @@
                 this.listOfFlights.push(flight);
             }
 
-            this.getData = function () {
+            this.getData = function (passenger, flight) {
                 var totalPassengers = flight1.listOfPassengers.length + flight2.listOfPassengers.length;
-            
-                return "Airport: " + this.name + ", total passengers: " + totalPassengers;
+
+                return "Airport: " + this.name + ", total passengers: " + totalPassengers + "\n \t" + flight1.setDate() + " " + flight1.relation + "\n \t \t" +
+                passenger1.number + ", " + passenger1.category.toUpperCase() + ", " + passenger1.name + " " + passenger1.surname + "\n \t \t" + passenger2.number + ", " + passenger2.category.toUpperCase() + ", " 
+                + passenger2.name + " " + passenger2.surname + "\n \t" +  flight2.setDate() + " " + flight2.relation + "\n \t \t" + passenger3.number + ", " + passenger3.category.toUpperCase() + ", " +
+                 passenger3.name + " " + passenger3.surname + "\n \t \t" + passenger4.number + ", " + passenger4.category.toUpperCase() + ", " + 
+                 passenger4.name + " " + passenger4.surname;  
             }
         }
 
@@ -74,8 +78,8 @@
 
         var passenger1 = createPassenger("Jessica", "Alba", 14, "b");
         var passenger2 = createPassenger("Julia", "Roberts", 11, "e");
-        var passenger3 = createPassenger("Matt", "Damon", 75, "b");
-        var passenger4 = createPassenger("Robbie", "Williams", 1, "b");
+        var passenger3 = createPassenger("Matt", "Damon");
+        var passenger4 = createPassenger("Robbie", "Williams", 1);
 
         var airport1 = new Airport();
 
