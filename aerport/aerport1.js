@@ -69,8 +69,8 @@
                     var passenger = this.listOfFlights[i].listOfPassengers[j]
                     totalPassengers += flight.listOfPassengers.length
                     
+                    output += flight.getData() + "\n\t" +  passenger.getData() + "\n";
                 }
-                output += flight.getData() + "\n\t" +  passenger.getData() + "\n";
             }
             return output;
         }
