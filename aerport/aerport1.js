@@ -60,17 +60,21 @@
             this.getData = function () {
                 var totalPassengers = 0;
                 var output = "";
-                for (var i = 0; i < this.listOfFlights.length; i++,) {
-                    // dodati jos jednu petlju for(var j = 0; j < )
+                var output1 = "";
+                var output2 = "";
+                for (var i = 0; i < this.listOfFlights.length; i++) {
                     var flight = this.listOfFlights[i]; 
-                    var passenger = this.listOfFlights[i].listOfPassengers[]
+                    output1+=flight.getData() + "\n \t"
+                    for(var j = 0; j < this.listOfFlights[i].listOfPassengers.length;j++){
+                    var passenger = this.listOfFlights[i].listOfPassengers[j]
                     totalPassengers += flight.listOfPassengers.length
-                    output += flight.getData() + "\n\t" +  passenger.getData() + "\n";
                     
                 }
-                return output;
+                output += flight.getData() + "\n\t" +  passenger.getData() + "\n";
             }
+            return output;
         }
+    }
 
         function createFlight(relation, date) {
             return new Flight(relation, date);
