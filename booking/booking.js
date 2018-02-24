@@ -44,8 +44,6 @@
            
             return this.country.getData() + ", " + expectedAmmount + " eur" + ", " + this.person.name + ", " + this.person.getAge() + " years";
         }
-
-
     };
 
     function Address(country, city, postalCode, street, stNumber) {
@@ -62,6 +60,7 @@
         this.getAddressWithoutNumber = function () {
             return this.street + ", " + this.postalCode + " " + this.city + ", " + this.country.getData();
         }
+        
     };
 
     function BettingPlace(address, player) {
@@ -96,14 +95,24 @@
         this.getData = function (){
             var numberOfPlayers = this.getNumberOfPlayersInHouse();
             
+            var counterSrbija = 0;
             var output = this.competition + ", "+ this.listOfBettingPlaces.length + " betting places, "+  numberOfPlayers + " bets" +"\n\t"  ;
             for(var i = 0; i < this.listOfBettingPlaces.length; i++){
                 output+=this.listOfBettingPlaces[i].getData() + "\n";
                 for(var j = 0; j < this.listOfBettingPlaces[i].listOfPlayers.length; j++){
                     output+= " \t \t" +this.listOfBettingPlaces[i].listOfPlayers[j].getData() + " \t\n";
+                    if(this.listOfBettingPlaces[i].listOfPlayers[j].country.getData()==="SR"){
+                        counterSrbija++;
+                        
+
+                    }
                 }
 
             }
+            
+              
+            
+            output = output + "Na srbiju ima: " + counterSrbija + " opklada." ;
             return output;
         }; 
 
