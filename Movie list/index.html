@@ -10,27 +10,34 @@
 </head>
 
 <body>
-
+<div class="container">
     <h1>Movies</h1>
-
+<fieldset name="Movie">
+    <p>Movie</p>
     <form>
+        <p>Title:</p>
         <input type="text" name="" id="movie-title" placeholder="Title">
+        <p>Length (min):</p>
         <input type="number" name="" id="movie-length" placeholder="Length">
+        <p>Chose Genre:</p>
         <select name="" id="movie-genre">
             <option value="-">-</option>
             <option value="Action">Action</option>
             <option value="Drama">Drama</option>
+            <option value="Drama">Comedy</option>
+            <option value="Drama">Horror</option>
+            <option value="Drama">Adventure</option>
         </select>
 
         <input type="button" value="Create Movie" id="createMovie">
-
+    
         <div class="output"></div>
-
+    </fieldset>
 
 
 
     </form>
-
+</div>
 
 
 
