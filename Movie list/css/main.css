@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+input,
+select {
+    display: block;
+    padding: 10px;
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: teal;
+}
+
+body {
+    background-color: antiquewhite;
+}
+
+#createMovie {
+    width: 20%;
+    margin-left: 5%;
+}
+.output{
+    color: red;
+    margin-left:5%;
+}
+
+li {
+    list-style-type: none;
+    margin-bottom: 1%;
+}
