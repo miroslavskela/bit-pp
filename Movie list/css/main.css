@@ -37,22 +37,33 @@ h1 {
     color: teal;
 }
 
-#createMovie {
-    width: 20%;
+#createMovie, #createProgram  {
+    width: 25%;
     margin-left: 5%;
+    text-align: center;
+}
+#addMovie{
+    width: 30%;
+    margin-left: 5%;
+    text-align: center;
 }
 
-.output {
+
+.output, output1 {
     margin-left: 5%;
     margin-top: 20px;
     border-top: 1px solid transparent;
+}
+.output1 ul li{
+    margin-left: 5%;
+    font-family: Courier New, Courier, monospace;
 }
 
 li {
     list-style-type: none;
     margin-bottom: 1%;
-    background: gray;
-    color: white;
+    background: rgb(238, 236, 236);
+    color: rgb(29, 28, 28);
 }
 
 .moviesLength p {

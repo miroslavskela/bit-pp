@@ -2,17 +2,98 @@
 
 var movieArr = [];
 var programArr = [];
+var movieInProgramArr = [];
 var totalMoviesLength = 0;
 
 function Movie(title, genre, length) {
     this.title = title.toUpperCase();
     this.genre = genre;
-    this.length = parseInt(length);
+    this.length = length;
 
 }
 Movie.prototype.getData = function () {
     return this.title + ", " + " duration: " + this.length + " min, " + getGenre(this.genre);
 
+}
+
+function Program(date) {
+    this.date = new Date(date);
+    this.listOfMovies = [];
+}
+Program.prototype.addMovie = function (movie) {
+    return this.listOfMovies.push(movie);
+}
+Program.prototype.getData = function () {
+    
+    return this.date.getDate() + "." + this.date.getMonth() + "." + this.date.getFullYear() + " number of movies " + movieInProgramArr.length + " Program duration: " + tba;
+}
+
+
+
+document.querySelector("#createMovie").addEventListener("click", function () {
+    createMovie()
+})
+document.querySelector("#createProgram").addEventListener("click", function () {
+    createProgram()
+})
+document.querySelector("#addMovie").addEventListener("click", function () {
+    addMovieToProgram()
+})
+
+
+function createMovie() {
+    
+    var titleInput = document.querySelector("#movie-title");
+    var lengthInput = document.querySelector("#movie-length");
+    var movieInput = titleInput.value;
+    var lengthOfMovie = parseInt(lengthInput.value);
+    var select = document.querySelector("#movie-genre");
+    var genreInput = select.options[select.selectedIndex];
+    var genreInputValue = genreInput.text;
+    var movie1 = new Movie(movieInput, genreInputValue,lengthOfMovie);
+    var paragraphMoviesLength = document.querySelector('.moviesLength').firstChild;
+    movieArr.push(movie1);
+    makeList(movieArr);
+    makeMovieSelect(movieArr);
+    paragraphMoviesLength.textContent = "All movies length: " + getTotalLength() + " min";
+    
+    titleInput.value = "";
+    lengthInput.value = "";
+    select.selectedIndex = 0;
+    
+}
+
+function createProgram() {
+    var inputdate = document.querySelector('#date').value;
+    var program = new Program(inputdate);
+    
+    programArr.push(program);
+    makeDateList(programArr);
+    makeProgramSelect(programArr);
+    
+    
+    
+}
+function addMovieToProgram(){
+    var movieSelectElement = document.querySelector('.output2').firstChild;
+    var movieOptionElement = movieSelectElement.options[movieSelectElement.selectedIndex];
+    var programSelectElement =  document.querySelector('.output2').lastChild;
+    var programOptionElement = programSelectElement.options[programSelectElement.selectedIndex];
+    
+    var movieIndex = movieOptionElement.value;
+    var programIndex = programOptionElement.value;
+    var selectedMovie = movieArr[movieIndex];
+    var selectedProgram = programArr[programIndex];
+    
+    movieInProgramArr.push(selectedMovie);
+    makeProgramList(movieInProgramArr, programArr);
+    
+    
+    
+    movieSelectElement.selectedIndex = 0;
+    programSelectElement.selectedIndex = 0;
+    
+    
 }
 
 function getGenre(datastring) {
@@ -24,7 +105,6 @@ function getGenre(datastring) {
 
 function calculateTotalLength() {
     var total = 0;
-
     movieArr.forEach(function (currentMovie) {
         total += currentMovie.length;
     });
@@ -32,31 +112,12 @@ function calculateTotalLength() {
 }
 
 function getTotalLength() {
-
     calculateTotalLength();
-
     return totalMoviesLength;
 }
 
 
-document.querySelector("#createMovie").addEventListener("click", function () {
-    createMovie()
-})
-
-function createMovie() {
-    var movie = document.querySelector("#movie-title").value;
-    var length = document.querySelector("#movie-length").value;
-    var select = document.querySelector("#movie-genre");
-    var genre = select.options[select.selectedIndex].text;
-    var movie1 = new Movie(movie, genre, length);
-    var paragraphMoviesLength = document.querySelector('.moviesLength').firstChild;
-    movieArr.push(movie1);
-    makeList(movieArr);
-    paragraphMoviesLength.textContent = "All movies length: " + getTotalLength() + " min";
-    console.log(movieArr);
-
-}
-
+//LI for movies
 var div = document.querySelector('.output');
 var list = document.createElement('ul');
 div.appendChild(list)
@@ -68,36 +129,7 @@ function makeList(Arr) {
 }
 
 
-
-//Program
-
-document.querySelector("#createProgram").addEventListener("click", function () {
-    createProgram()
-})
-
-
-function Program(date) {
-    this.date = new Date(date);
-    this.listOfMovies = [];
-}
-Program.prototype.addMovie = function (movie) {
-    return this.listOfMovies.push(movie);
-}
-Program.prototype.getData = function () {
-    return this.date.getDate() + "." + this.date.getMonth() + "." + this.date.getFullYear() + " number of movies " + this.listOfMovies.length + " Program duration: " + getTotalLength();
-}
-
-
-function createProgram() {
-    var inputdate = document.querySelector('#date').value;
-    var program = new Program(inputdate);
-    programArr.push(program);
-    makeDateList(programArr);
-
-
-}
-
-
+//LI for programs
 var div1 = document.querySelector('.output1');
 var list1 = document.createElement('ul');
 div1.appendChild(list1)
@@ -108,6 +140,60 @@ function makeDateList(Arr) {
     list1.appendChild(li);
 
 }
+
+function makeProgramList(Arr, Arr1){
+    
+    var li = document.createElement('li');
+    li.textContent =Arr1[Arr1.length-1].getData() + "; " + Arr[Arr.length - 1].getData() ;
+    list1.appendChild(li);
+   
+    
+}
+
+//select for movies
+var div2 = document.querySelector('.output2');
+var select = document.createElement('select');
+div2.appendChild(select);
+
+function makeMovieSelect(Arr){
+    var option = document.createElement('option');
+    
+        option.value = Arr.length-1;
+        option.textContent = Arr[Arr.length-1].getData();
+        select.appendChild(option);
+    
+    
+}
+//select for programs
+var div2 = document.querySelector('.output2');
+var select1 = document.createElement('select');
+div2.appendChild(select1);
+
+function makeProgramSelect(Arr){
+    var option1 = document.createElement('option');
+    
+        option1.value = Arr.length-1;
+        option1.textContent = Arr[Arr.length-1].getData();
+        select1.appendChild(option1);
+    
+    
+}
+
+
+
+
+
+//Program
+
+
+
+
+
+
+
+
+
+
 
 
 
