@@ -4,22 +4,24 @@
 
     function Genre(name) {
         this.name = name;
-        this.getData = function () {
-            var firstLetter = this.name.charAt(0);
-            var lastletter = this.name.charAt(name.length - 1);
-            var result = firstLetter + lastletter;
-            return result.toUpperCase();
-        }
+    };
+
+    Genre.prototype.getData = function () {
+        var firstLetter = this.name.charAt(0);
+        var lastletter = this.name.charAt(this.name.length - 1);
+        var result = firstLetter + lastletter;
+        return result.toUpperCase();
     }
-    // function Genre
+
 
     function Movie(title, genre, length) {
         this.title = title;
         this.genre = genre;
         this.length = length;
-        this.getData = function () {
-            return this.title + ", " + this.length + " min, " + this.genre.getData();
-        }
+    }
+
+    Movie.prototype.getData = function () {
+        return this.title + ", " + this.length + " min, " + this.genre.getData();
     }
     // function movie
 
@@ -31,58 +33,60 @@
         this.myDate = this.date.getFullYear();
         this.fullDate = this.myDay + "." + this.myMonth + "." + this.myDate;
         this.listOfMovies = [];
-        this.addMovie = function (movie) {
-            return this.listOfMovies.push(movie);
-        }
-        this.numberOfMovies = function () {
-            return this.listOfMovies.length;
-        }
-        this.getProgramLength = function () {
-            var length = 0;
-            for (var i = 0; i < this.listOfMovies.length; i++) {
-                var movie = this.listOfMovies[i];
-                length += movie.length;
-            }
-            return length;
-        }
-        this.getData = function () {
-            var output = "";
-            var output = this.fullDate + ", program duration, " + this.getProgramLength() + "min\n"
-            for (var i = 0; i < this.listOfMovies.length; i++) {
-                var movie = this.listOfMovies[i]
-                output += "\t\t" + movie.getData() + "\n"
-            }
-            return output;
-        }
+    }
 
+    Program.prototype.addMovie = function (movie) {
+        return this.listOfMovies.push(movie);
+    }
+    Program.prototype.numberOfMovies = function () {
+        return this.listOfMovies.length;
+    }
+    Program.prototype.getProgramLength = function () {
+        var length = 0;
+        for (var i = 0; i < this.listOfMovies.length; i++) {
+            var movie = this.listOfMovies[i];
+            length += movie.length;
+        }
+        return length;
+    }
+    Program.prototype.getData = function () {
+        var output = "";
+        var output = this.fullDate + ", program duration, " + this.getProgramLength() + "min\n"
+        for (var i = 0; i < this.listOfMovies.length; i++) {
+            var movie = this.listOfMovies[i]
+            output += "\t\t" + movie.getData() + "\n"
+        }
+        return output;
     }
     // function program getData important
 
     function Festival(name) {
         this.name = name;
         this.listOfPrograms = [];
-        this.numberOfAllMovies = function () {
-            var num = 0;
-            for (var i = 0; i < this.listOfPrograms.length; i++) {
-                num += this.listOfPrograms[i].numberOfMovies();
+    }
 
-            }return num;
+    Festival.prototype.numberOfAllMovies = function () {
+        var num = 0;
+        for (var i = 0; i < this.listOfPrograms.length; i++) {
+            num += this.listOfPrograms[i].numberOfMovies();
+
         }
+        return num;
+    }
 
-        this.addProgram = function (program) {
-            this.listOfPrograms.push(program);
+    Festival.prototype.addProgram = function (program) {
+        this.listOfPrograms.push(program);
 
-        };
-        this.getData = function () {
-            var output = this.name + " has " + this.numberOfAllMovies() + " movie titles" + "\n"
-            var output1 = "";
-            for (var i = 0; i < this.listOfPrograms.length; i++) {
-                var program = this.listOfPrograms[i];
-                output1 += "\t" + program.getData() ;
-                
-            }
-            return output + output1;
+    };
+    Festival.prototype.getData = function () {
+        var output = this.name + " has " + this.numberOfAllMovies() + " movie titles" + "\n"
+        var output1 = "";
+        for (var i = 0; i < this.listOfPrograms.length; i++) {
+            var program = this.listOfPrograms[i];
+            output1 += "\t" + program.getData();
+
         }
+        return output + output1;
     }
     // function festival
 
@@ -101,7 +105,7 @@
 
 
     var program1 = new Program("2018-04-05");
-    var program2 = new Program("2018-05-07")
+    var program2 = new Program("2018-04-07")
     program1.addMovie(movie);
     program1.addMovie(movie1);
     program1.addMovie(movie2);

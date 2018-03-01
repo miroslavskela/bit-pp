@@ -16,11 +16,11 @@
     <p>Movie</p>
     <form>
         <p>Title:</p>
-        <input type="text" name="" id="movie-title" placeholder="Title">
+        <input type="text" name="" id="movie-title" placeholder="Title" required>
         <p>Length (min):</p>
-        <input type="number" name="" id="movie-length" placeholder="Length">
+        <input type="number" name="" id="movie-length" placeholder="Length" required>
         <p>Chose Genre:</p>
-        <select name="" id="movie-genre">
+        <select name="" id="movie-genre" required>
             <option value="-">-</option>
             <option value="Action">Action</option>
             <option value="Drama">Drama</option>
@@ -33,10 +33,22 @@
     
         <div class="output"></div>
     </fieldset>
+    <div class="moviesLength"><p></p></div>
+</form>
+   
+<p>Program</p>
+<form>
+    <fieldset>
+        <p class="programdate">Date:</p>
+        <input type="date" name="date" id="date">
+        <input type="button" value="Create program" id="createProgram" >
+        <div class="output1"></div>
+
+        <div class="output2"></div>
+    </fieldset>
+</form>
 
 
-
-    </form>
 </div>
 
 

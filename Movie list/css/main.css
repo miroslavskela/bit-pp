@@ -3,22 +3,25 @@
     box-sizing: border-box;
     padding: 0;
 }
-.container{
+
+.container {
     width: 70%;
     margin: 20px auto;
     background: rgb(221, 214, 214);
     padding: 10px;
 }
-fieldset>p{
-margin:0;
-margin-bottom: 10px;
-font-size: 1.4em;
+
+fieldset>p {
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 1.4em;
 }
 
-p{
+p {
     margin-left: 5%;
     font-size: 1.2em;
 }
+
 input,
 select {
     display: block;
@@ -26,7 +29,6 @@ select {
     width: 90%;
     margin: 0 auto;
     margin-bottom: 20px;
-    
 }
 
 h1 {
@@ -35,16 +37,13 @@ h1 {
     color: teal;
 }
 
-
-
 #createMovie {
     width: 20%;
     margin-left: 5%;
 }
-    
-.output{
-    color: rgb(23, 171, 182);
-    margin-left:5%;
+
+.output {
+    margin-left: 5%;
     margin-top: 20px;
     border-top: 1px solid transparent;
 }
@@ -53,4 +52,17 @@ li {
     list-style-type: none;
     margin-bottom: 1%;
     background: gray;
+    color: white;
+}
+
+.moviesLength p {
+    margin-bottom: 10px;
+    margin-right: 5%;
+    font-size: 1.2em;
+}
+
+.programdate {
+    margin-left: 5%;
+    font-size: 1.2em; 
+    margin-bottom:0;
 }
