@@ -70,23 +70,23 @@
     function Student(name, surname, indexnumber) {
         Person.call(this, name, surname);
         this.indexnumber = indexnumber;
-        this.status = studentStatus.status
-        this.studentList = [];
+        this.status = "regular"
+        this.passedExamsList = [];
     }
 
     Student.prototype = Object.create(Person.prototype); // student inherit person
     Student.prototype.constructor = Student;
 
     Student.prototype.addExam = function (exam) {       //student Method 
-        this.studentList.push(exam);
+        this.passedExamsList.push(exam);
     }
-    Student.prototype.getDataStu = function (){hod
+    Student.prototype.getDataStu = function (){
         var fullNameStu =  Object.getPrototypeOf(Student.prototype).getDataPer.call(this); //person met
-        return this.indexnumber + "; " + fullNameStu + "; " + this.avarageGrade();
+        return this.indexnumber + "; " + fullNameStu + "; " + this.avarageGrade;
     }
 
 
-})();
+
 
 function Faculty(name) {
     this.name = name;
@@ -97,8 +97,13 @@ function Faculty(name) {
 Faculty.prototype.addStudent = function(student){     //faculty method
     studentList.push(student);
 }
-faculty.prototype.addTen = function(grade){           //faculty method
+Faculty.prototype.addTen = function(grade){           //faculty method
     if (grade === 10) {
         numberOf10Grade.push(grade);
     }
 }
+
+var student1 = new Student ("Miroslav", "Skeledzija", 1233);
+console.log(student1.getDataStu());
+
+})();
