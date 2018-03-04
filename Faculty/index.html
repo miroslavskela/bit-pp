@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="faculty">
+            <form>
+                <fieldset>
+                    <h2>FACULTY:</h2>
+                    <select name="select" class="facultyselect">
+                        <option value="none">-</option>
+                        <option value="Fasper">Fasper</option>
+                        <option value="PMF">PMF</option>
+                        <option value="KPA">KPA</option>
+                        <option value="DIF">DIF</option>
+                        <option value="FON">FON</option>
+                    </select>
+                    <input type="button" value="Chose Faculty">
+                </fieldset>
+            </form>
+        </div>
+        <div class="facultyoutput"></div>
+        <div class="professor">
+            <form>
+                <fieldset>
+                    <h2>Professor:</h2>
+                    <select class="professorselect">
+
+                    </select>
+                    <input type="number" placeholder="Office number" class "officenumber">
+                    <input type="button" value="Chose Professor">
+                </fieldset>
+            </form>
+        </div>
+        <div class="professoroutput"></div>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>
