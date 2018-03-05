@@ -1,60 +1,84 @@
-var movieData = (function () {
-    function Movie(title, length, genre) {
-        this.title = title;
-        this.length = length;
-        this.genre = genre;
-    }
-    var listOfMovies = [];
+var dataCtrl = (function(){
+ var data = {
+     movieList: []
+ }
 
-    function addMovie (title,length,genre){
-        var movie = new Movie(title,length,genre);
-        listOfMovies.push(movie);
-    }
+ function Movie(title, genre, length){
+     this.title = title;
+     this.genre = genre;
+     this.length = length;
+ }
+ Movie.prototype.getData = function(){
+     return this.title + ", " + this.length + "min, " + this.genre
+ };
 
-    return {
-        addMovie:addMovie,
-        listOfMovies: listOfMovies,
-    }
+ function addMovie(movieData){
+     var movie = new Movie(movieData.title, movieData.genre, movieData.length)
+     data.movieList.push(movie)
+     return movie;
+ }
+ function testLog(){
+     console.log(data);
+     
+ }
+
+ return {
+     createMovie:addMovie
+ }
+ 
 })();
 
-var uiFormData = (function () {
-    var domQueries = {
-        button: ".create-movie",
-        inputTitle: ".movie-title",
-        inputLength: ".movie-length",
-        inputGenre: ".genre-select"
-    }
-    var movieValues = {
-        title: document.querySelector(".movie-title").value,
-        length: document.querySelector(".movie-length").value,
-        genre: document.querySelector(".genre-select").value
+var uiCtrl = (function(){
+
+var DOMSelectors = {
+    movieTitleElement: '.movie-title',
+    movieGenreElement: '.genre-select',
+    movieLengthElement: '.movie-length',
+    createMovieButton: '.create-movie'
+}
+
+function getFormData(){
+    var titleElement = document.querySelector(DOMSelectors.movieTitleElement)
+    var lengthElement = document.querySelector(DOMSelectors.movieLengthElement)
+    var genreSelect = document.querySelector(DOMSelectors.movieGenreElement)
+
+    var title = titleElement.value;
+    var length = parseInt(lengthElement.value);
+    var genre = genreSelect.options[genreSelect.selectedIndex].value
+
+    var formInputObj = {
+        title:title,
+        length:length,
+        genre:genre
     }
 
-    var selectElement = function (element) {
-        var node = document.querySelector(element);
-        // node.classList
-        return node;
-    }
+    return formInputObj;
+}
 
-    return {
-        domQueries: domQueries,
-        selectElement: selectElement,
-        movieValues: movieValues,
-    };
+function showMovieData(movie){
+    console.log(movie.getData()); 
+}
+
+return{
+    domSelectors:DOMSelectors,
+    collectInputData:getFormData,
+    showMovieData:showMovieData
+}
 })();
 
-var controller = (function (ui, data) {
-    var button = uiFormData.selectElement(uiFormData.domQueries.button);
-    var title = uiFormData.selectElement(uiFormData.domQueries.inputTitle);
-    var length = uiFormData.selectElement(uiFormData.domQueries.inputLength);
-    var genre = uiFormData.selectElement(uiFormData.domQueries.inputGenre);
 
+var ctrlModule = (function (dataCtrl, uiCtrl){
+    // 1. 
+   document.querySelector(uiCtrl.domSelectors.createMovieButton).addEventListener('click', function(event){
+       // 2. getFormData() from ui module
+       var formMovie = uiCtrl.collectInputData()
+        // 3. add Movie to list
+        var movieInstance = dataCtrl.createMovie(formMovie);
 
+        //4. show movie data 
+        console.log(movieInstance);
+        uiCtrl.showMovieData(movieInstance)
+        
 
-    button.addEventListener("click", createMovie);
-
-    function createMovie() {
-        movieData.addMovie(uiFormData.movieValues.title,uiFormData.movieValues.length,uiFormData.movieValues.genre)
-    }
-
-})(uiFormData, movieData);
+   } )
+})(dataCtrl, uiCtrl);
