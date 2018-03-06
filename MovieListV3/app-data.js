@@ -19,6 +19,7 @@ var data = {
 
  return{
      addMovie: addMovie,
+     data:data
      
  }
 

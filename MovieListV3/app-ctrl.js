@@ -5,13 +5,19 @@ var ctrlModule = (function(ui, data){
 
     var movieData = ui.getInputData();
     var movie = data.addMovie(movieData);
-    console.log(movie);
+
    
-    if(!ui.displayError()){
+    if(ui.displayError()){
         
+        console.log("true");
         ui.showMovieData(movie);
         ui.clearInputs();
+        
+    }else{
+        ui.displayError()
     }
+    
+    
     
 
 

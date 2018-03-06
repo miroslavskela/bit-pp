@@ -20,6 +20,14 @@ var uiModule = (function () {
             genre: genre
         }
     }
+    // var movieList = document.querySelector('.movie-list');
+    // var list = document.createElement('ul');
+    // movieList.appendChild(list)
+
+    // function showMovieData(movie,data){
+    //     var li = document.createElement('li');
+    //     li.textContent = data.movieList[movieList.length-1].getData();
+    // }
 
     function showMovieData(movie){
         var movieList = document.querySelector('.movie-list');
@@ -36,7 +44,7 @@ var uiModule = (function () {
              var movieError = document.querySelector('.movie-error');
              movieError.textContent = "You have to enter all inputs";
             }
-            return false
+           
 
      }
 
