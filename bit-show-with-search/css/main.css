@@ -1,0 +1,26 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+  #search{
+      display: inline-block;
+      height: 60px;
+  }
+  nav{
+      position: relative;
+  }
+  .list2-group {
+      color:black;
+      width: 200px;
+      position: absolute;
+      top: 92%;
+      
+      background: white;
+     
+      z-index: 10;
+  }
