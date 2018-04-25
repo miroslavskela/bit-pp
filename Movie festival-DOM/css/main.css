@@ -1,0 +1,62 @@
+*{
+margin:0;
+padding:0;
+}
+h1{
+    text-align: center;
+}
+.fieldset1{
+    width: 90%;
+    margin: 0 auto;
+    padding: 5px;
+}
+.fieldset2{
+    width: 90%;
+    margin: 0 auto;
+    padding: 5px;
+}
+.fieldset3{
+    width: 90%;
+    margin: 0 auto;
+    padding: 5px;
+}
+p{
+    padding: 5px;
+}
+input{
+    display: block;
+    margin: 0 auto;
+    width: 99%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+}
+select{
+    width: 30%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left:2px;
+}
+.movie-select{
+    width: 99%;
+    display: block;
+}
+.program-select{
+    width: 99%;
+    display: block;
+}
+.create-movie{
+    background: green;
+    padding: 7px;
+}
+.create-program{
+    background: green;
+    padding: 7px;
+}
+.add-movie{
+    background: green;
+    padding: 7px; 
+}
+li{
+    color: red;
+}
