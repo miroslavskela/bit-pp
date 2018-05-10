@@ -38,8 +38,10 @@
 
     }
 
-    Program.prototype.addMovie = function (movie) {
-        this.listOfMovies.push(movie)
+    Program.prototype.addMovie = function () {
+        for(var i = 0; i < arguments.length; i++){
+        this.listOfMovies.push(arguments[i])
+    }
     }
 
     Program.prototype.getData = function () {
@@ -71,8 +73,10 @@
         this.listOfPrograms = [];
     }
 
-    Festival.prototype.addProgram = function (program) {
-        this.listOfPrograms.push(program)
+    Festival.prototype.addProgram = function () {
+        for(var i = 0; i < arguments.length; i++){
+        this.listOfPrograms.push(arguments[i])
+    }
     }
 
     Festival.prototype.numberOfAllMovies = function () {
