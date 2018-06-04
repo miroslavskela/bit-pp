@@ -89,8 +89,8 @@ const uiModule = (() => {
 
         let span = document.createElement('span');
         span.className = "card-title";
-        let spanText = document.createTextNode(name);
-        span.appendChild(spanText)
+        span.textContent = name;
+      
 
         divSecond.appendChild(divThird);
         divSecond.appendChild(span);
@@ -117,8 +117,8 @@ const uiModule = (() => {
         divThird.appendChild(img);
 
         let span = document.createElement('span');
-        let spanText = document.createTextNode(name);
-        span.appendChild(spanText);
+        span.textContent = name;
+        
 
         divSecond.appendChild(divThird);
         divSecond.appendChild(span);
@@ -130,13 +130,12 @@ const uiModule = (() => {
 
     const createCastList = (cast) => {
         let li = document.createElement('li');
-        let liText = document.createTextNode(cast.name);
-        li.appendChild(liText);
+        li.textContent = cast.name;
         return li
     }
     const createSeasonList = (season) => {
         let li = document.createElement('li');
-        let liText = document.createTextNode("Season start: " + season.start + " Season end: " + season.end);
+         li.textContent = "Season start: " + season.start + " Season end: " + season.end;
         li.appendChild(liText);
         return li
     }
@@ -145,15 +144,13 @@ const uiModule = (() => {
         let li = document.createElement('li');
         li.className = "li-search"
         li.setAttribute('data-show-id', search.id)
-        let liText = document.createTextNode(search.name);
-        li.appendChild(liText);
+        li.textContent = search.name
         return li
     }
 
     const displayError = (error) => {
        let h3 = document.createElement('h3');
-       let h3Text = document.createTextNode('Error');
-       h3.appendChild(h3Text);
+        h3.textContent = "Error";
        con1.appendChild('h3')
     }
 
